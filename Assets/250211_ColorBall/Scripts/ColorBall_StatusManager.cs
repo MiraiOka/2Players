@@ -30,7 +30,7 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
         gridStatus[x, y] = type;
     }
 
-    public void SetBallType(int x, int y, BallType type)
+    public void SetBallStatus(int x, int y, BallType type)
     {
         ballStatus[x, y] = type;
     }
