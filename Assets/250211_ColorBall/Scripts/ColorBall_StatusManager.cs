@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorBall_GridStatusManager : SingletonMonoBehaviour<ColorBall_GridStatusManager>
+public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusManager>
 {
     public enum GridType
     {

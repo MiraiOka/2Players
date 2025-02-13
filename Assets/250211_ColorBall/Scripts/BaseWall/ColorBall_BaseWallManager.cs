@@ -8,8 +8,8 @@ public class ColorBall_BaseWallManager : SingletonMonoBehaviour<ColorBall_BaseWa
 
     public void CreateBaseWall()
     {
-        int gridWidth = (int)ColorBall_GridStatusManager.Instance.GetGrid().x;
-        int gridHeight = (int)ColorBall_GridStatusManager.Instance.GetGrid().y;
+        int gridWidth = (int)ColorBall_StatusManager.Instance.GetGrid().x;
+        int gridHeight = (int)ColorBall_StatusManager.Instance.GetGrid().y;
         for (int i = 0; i < gridWidth; i++)
         {
             for (int j = 0; j < gridHeight; j++)
@@ -20,7 +20,7 @@ public class ColorBall_BaseWallManager : SingletonMonoBehaviour<ColorBall_BaseWa
                     baseWall.transform.SetParent(transform);
                     ColorBall_BaseWallView view = baseWall.AddComponent<ColorBall_BaseWallView>();
                     view.SetBaseWallColor();
-                    ColorBall_GridStatusManager.Instance.SetGridType(i, j, ColorBall_GridStatusManager.GridType.Wall);
+                    ColorBall_StatusManager.Instance.SetGridType(i, j, ColorBall_StatusManager.GridType.Wall);
                     continue;
                 }
             }

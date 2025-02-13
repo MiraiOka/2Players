@@ -10,8 +10,8 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
 
     public void CreateBalls()
     {
-        int gridWidth = (int)ColorBall_GridStatusManager.Instance.GetGrid().x;
-        int gridHeight = (int)ColorBall_GridStatusManager.Instance.GetGrid().y;
+        int gridWidth = (int)ColorBall_StatusManager.Instance.GetGrid().x;
+        int gridHeight = (int)ColorBall_StatusManager.Instance.GetGrid().y;
 
         redBall = Instantiate(spherePrefab, new Vector3(-(gridWidth / 2.0f) + 1.5f, 1, -(gridHeight / 2.0f) + 1.5f), Quaternion.identity);
         redBall.transform.SetParent(transform);
@@ -26,13 +26,13 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
     {
         if (isRed)
         {
-            ColorBall_BallController redBallController = redBall.GetComponent<ColorBall_BallController>();
+            ColorBall_BallController redBallController = redBall.AddComponent<ColorBall_BallController>();
             redBallController.MoveBall(direction);
             redBall.transform.position += direction;
         }
         else
         {
-            ColorBall_BallController blueBallController = blueBall.GetComponent<ColorBall_BallController>();
+            ColorBall_BallController blueBallController = blueBall.AddComponent<ColorBall_BallController>();
             blueBallController.MoveBall(direction);
             blueBall.transform.position += direction;
         }
