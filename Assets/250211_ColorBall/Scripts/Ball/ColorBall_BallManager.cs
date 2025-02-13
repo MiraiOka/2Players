@@ -26,10 +26,14 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
     {
         if (isRed)
         {
+            ColorBall_BallController redBallController = redBall.GetComponent<ColorBall_BallController>();
+            redBallController.MoveBall(direction);
             redBall.transform.position += direction;
         }
         else
         {
+            ColorBall_BallController blueBallController = blueBall.GetComponent<ColorBall_BallController>();
+            blueBallController.MoveBall(direction);
             blueBall.transform.position += direction;
         }
     }

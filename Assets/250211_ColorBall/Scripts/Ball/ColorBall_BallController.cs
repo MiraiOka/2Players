@@ -9,6 +9,12 @@ public class ColorBall_BallController : MonoBehaviour
     private bool isLeft = false;
     private bool isUp = false;
     private bool isDown = false;
+    [SerializeField] private Vector3 currentGrid;
+
+    public void SetCurrentPosition(Vector3 pos)
+    {
+        currentGrid = pos;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,6 +39,12 @@ public class ColorBall_BallController : MonoBehaviour
             isDown = false;
             ColorBall_GameManager.Instance.ChangeTurn();
         }
+    }
+
+    public void MoveBall(Vector3 direction)
+    {
+
+        transform.position += direction;
     }
 
     private void Update()
