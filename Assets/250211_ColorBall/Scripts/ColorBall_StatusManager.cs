@@ -22,8 +22,22 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
     [SerializeField] private int gridWidth = 11;
     [SerializeField] private int gridHeight = 11;
 
-    [SerializeField] private GridType[,] gridStatus = new GridType[11, 11];
-    [SerializeField] private BallType[,] ballStatus = new BallType[11, 11];
+    [SerializeField] private GridType[,] gridStatus;
+    [SerializeField] private BallType[,] ballStatus;
+
+    public void SetInitStatus()
+    {
+        gridStatus = new GridType[gridWidth, gridHeight];
+        ballStatus = new BallType[gridWidth, gridHeight];
+        for (int i = 0; i < gridStatus.GetLength(0); i++)
+        {
+            for (int j = 0; j < gridStatus.GetLength(1); j++)
+            {
+                gridStatus[i, j] = GridType.NormalTile;
+                ballStatus[i, j] = BallType.None;
+            }
+        }
+    }
 
     public void SetGridType(int x, int y, GridType type)
     {
@@ -38,5 +52,10 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
     public Vector2 GetGrid()
     {
         return new Vector2(gridWidth, gridHeight);
+    }
+
+    public BallType[,] GetBallStatus()
+    {
+        return ballStatus;
     }
 }

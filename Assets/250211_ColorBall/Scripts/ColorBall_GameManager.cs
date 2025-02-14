@@ -7,6 +7,7 @@ public class ColorBall_GameManager : SingletonMonoBehaviour<ColorBall_GameManage
     private void Start()
     {
         IsRedTurn = Random.value > 0.5f;
+        ColorBall_StatusManager.Instance.SetInitStatus();
         ColorBall_BaseWallManager.Instance.CreateBaseWall();
         ColorBall_TileManager.Instance.CreateBaseTile();
         ColorBall_BallManager.Instance.CreateBalls();
