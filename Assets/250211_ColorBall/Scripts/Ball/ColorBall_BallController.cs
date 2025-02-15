@@ -10,6 +10,8 @@ public class ColorBall_BallController : MonoBehaviour
     private bool isUp = false;
     private bool isDown = false;
     [SerializeField] private Vector2 currentGrid;
+    private int currentPositionX = -1;
+    private int currentPositionY = -1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,11 +46,28 @@ public class ColorBall_BallController : MonoBehaviour
     public void MoveBall(Vector2 direction)
     {
         SetCurrentPosition();
-        Debug.Log(currentPositionX + ", " + currentPositionY);
-    }
 
-    private int currentPositionX = -1;
-    private int currentPositionY = -1;
+        for (int i = 1; i < ColorBall_StatusManager.Instance.GetGrid().x; i++)
+        {
+            int nextX = currentPositionX + Mathf.RoundToInt(direction.x) * i;
+            int nextY = currentPositionY + Mathf.RoundToInt(direction.y) * i;
+            Debug.Log(nextX + "," + nextY);
+            ColorBall_StatusManager.GridType nextGridType = ColorBall_StatusManager.Instance.GetGridType(nextX, nextY);
+            ColorBall_StatusManager.BallType nextBallType = ColorBall_StatusManager.Instance.GetBallStatus(nextX, nextY);
+            if (nextGridType != ColorBall_StatusManager.GridType.Wall && nextBallType == ColorBall_StatusManager.BallType.None)
+            {
+                ColorBall_StatusManager.Instance.SetBallStatusNone(currentPositionX, currentPositionY);
+                this.gameObject.transform.position += new Vector3(direction.x, 0, direction.y);
+            }
+            else
+            {
+                currentPositionX = nextX - Mathf.RoundToInt(direction.x);
+                currentPositionY = nextY - Mathf.RoundToInt(direction.y);
+                ColorBall_StatusManager.Instance.SetBallStatus(currentPositionX, currentPositionY, isRed);
+                return;
+            }
+        }
+    }
 
     private void SetCurrentPosition()
     {

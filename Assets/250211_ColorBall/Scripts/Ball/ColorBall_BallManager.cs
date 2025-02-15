@@ -18,7 +18,7 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         redBall = Instantiate(spherePrefab, new Vector3(-(gridWidth / 2.0f) + 1.5f, 1, -(gridHeight / 2.0f) + 1.5f), Quaternion.identity);
         redBall.transform.SetParent(transform);
         redBall.GetComponent<Renderer>().material.color = Color.red;
-        ColorBall_StatusManager.Instance.SetBallStatus(1, 1, ColorBall_StatusManager.BallType.Red);
+        ColorBall_StatusManager.Instance.SetBallStatus(1, 1, true);
         redBallController = redBall.AddComponent<ColorBall_BallController>();
         redBallController.SetIsRed(true);
 
@@ -26,7 +26,7 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         blueBall = Instantiate(spherePrefab, new Vector3((gridWidth / 2.0f) - 1.5f, 1, (gridHeight / 2.0f) - 1.5f), Quaternion.identity);
         blueBall.transform.SetParent(transform);
         blueBall.GetComponent<Renderer>().material.color = Color.blue;
-        ColorBall_StatusManager.Instance.SetBallStatus(gridWidth - 2, gridHeight - 2, ColorBall_StatusManager.BallType.Blue);
+        ColorBall_StatusManager.Instance.SetBallStatus(gridWidth - 2, gridHeight - 2, false);
         blueBallController = blueBall.AddComponent<ColorBall_BallController>();
         blueBallController.SetIsRed(false);
     }

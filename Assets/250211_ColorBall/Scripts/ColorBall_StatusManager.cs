@@ -44,9 +44,26 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
         gridStatus[x, y] = type;
     }
 
-    public void SetBallStatus(int x, int y, BallType type)
+    public GridType GetGridType(int x, int y)
     {
-        ballStatus[x, y] = type;
+        return gridStatus[x, y];
+    }
+
+    public void SetBallStatus(int x, int y, bool isRed)
+    {
+        if (isRed)
+        {
+            ballStatus[x, y] = BallType.Red;
+        }
+        else
+        {
+            ballStatus[x, y] = BallType.Blue;
+        }
+    }
+
+    public void SetBallStatusNone(int x, int y)
+    {
+        ballStatus[x, y] = BallType.None;
     }
 
     public Vector2 GetGrid()
@@ -57,5 +74,10 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
     public BallType[,] GetBallStatus()
     {
         return ballStatus;
+    }
+
+    public BallType GetBallStatus(int x, int y)
+    {
+        return ballStatus[x, y];
     }
 }
