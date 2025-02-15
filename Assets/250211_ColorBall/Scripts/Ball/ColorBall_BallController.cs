@@ -51,7 +51,6 @@ public class ColorBall_BallController : MonoBehaviour
         {
             int nextX = currentPositionX + Mathf.RoundToInt(direction.x) * i;
             int nextY = currentPositionY + Mathf.RoundToInt(direction.y) * i;
-            Debug.Log(nextX + "," + nextY);
             ColorBall_StatusManager.GridType nextGridType = ColorBall_StatusManager.Instance.GetGridType(nextX, nextY);
             ColorBall_StatusManager.BallType nextBallType = ColorBall_StatusManager.Instance.GetBallStatus(nextX, nextY);
             if (nextGridType != ColorBall_StatusManager.GridType.Wall && nextBallType == ColorBall_StatusManager.BallType.None)
