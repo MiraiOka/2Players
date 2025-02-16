@@ -8,7 +8,7 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
     {
         Wall,
         RedTile,
-        BlueTime,
+        BlueTile,
         NormalTile,
     }
 
@@ -44,9 +44,26 @@ public class ColorBall_StatusManager : SingletonMonoBehaviour<ColorBall_StatusMa
         gridStatus[x, y] = type;
     }
 
+    public void SetGridType(int x, int y, bool isRed)
+    {
+        if (isRed)
+        {
+            gridStatus[x, y] = GridType.RedTile;
+        }
+        else
+        {
+            gridStatus[x, y] = GridType.BlueTile;
+        }
+    }
+
     public GridType GetGridType(int x, int y)
     {
         return gridStatus[x, y];
+    }
+
+    public GridType[,] GetGridStatus()
+    {
+        return gridStatus;
     }
 
     public void SetBallStatus(int x, int y, bool isRed)

@@ -718,6 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRed: 1
   speed: 10
+  currentGrid: {x: 0, y: 0}
 --- !u!1 &135284202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRed: 0
   speed: 10
+  currentGrid: {x: 0, y: 0}
 --- !u!54 &512886719
 Rigidbody:
   m_ObjectHideFlags: 0

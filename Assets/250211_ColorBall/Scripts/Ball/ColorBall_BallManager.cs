@@ -22,7 +22,6 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         redBallController = redBall.AddComponent<ColorBall_BallController>();
         redBallController.SetIsRed(true);
 
-
         blueBall = Instantiate(spherePrefab, new Vector3((gridWidth / 2.0f) - 1.5f, 1, (gridHeight / 2.0f) - 1.5f), Quaternion.identity);
         blueBall.transform.SetParent(transform);
         blueBall.GetComponent<Renderer>().material.color = Color.blue;
