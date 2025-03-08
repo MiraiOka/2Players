@@ -21,6 +21,7 @@ public class ColorBall_WallManager : SingletonMonoBehaviour<ColorBall_WallManage
                 if (UnityEngine.Random.value > 0.8f)
                 {
                     GameObject wall = Instantiate(wallPrefab, new Vector3(width - (gridWidth / 2.0f) + 0.5f, 1, height - (gridHeight / 2.0f) + 0.5f), Quaternion.identity);
+                    ColorBall_StatusManager.Instance.SetGridType(width, height, ColorBall_StatusManager.GridType.Wall);
                 }
             }
         }

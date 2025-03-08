@@ -21,7 +21,7 @@ public class ColorBall_TileView : MonoBehaviour
         switch (gridStatus)
         {
             case ColorBall_StatusManager.GridType.NormalTile:
-                tileMaterial.color = Color.gray;
+                tileMaterial.color = Color.black;
                 return;
             case ColorBall_StatusManager.GridType.RedTile:
                 tileMaterial.color = Color.red;

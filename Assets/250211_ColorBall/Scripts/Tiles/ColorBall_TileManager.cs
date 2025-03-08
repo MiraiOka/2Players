@@ -25,6 +25,7 @@ public class ColorBall_TileManager : SingletonMonoBehaviour<ColorBall_TileManage
                 ColorBall_TileView tileView = tile.AddComponent<ColorBall_TileView>();
                 tileViews[i, j] = tileView;
                 tileView.SetID(i, j);
+                tileView.UpdateTileView();
             }
         }
     }
@@ -32,6 +33,5 @@ public class ColorBall_TileManager : SingletonMonoBehaviour<ColorBall_TileManage
     public void UpdateView(int x, int y)
     {
         tileViews[x, y].UpdateTileView();
-
     }
 }
