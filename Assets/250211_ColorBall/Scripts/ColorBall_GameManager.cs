@@ -10,6 +10,7 @@ public class ColorBall_GameManager : SingletonMonoBehaviour<ColorBall_GameManage
         ColorBall_StatusManager.Instance.SetInitStatus();
         ColorBall_BaseWallManager.Instance.CreateBaseWall();
         ColorBall_TileManager.Instance.CreateBaseTile();
+        ColorBall_WallManager.Instance.SetWall();
         ColorBall_BallManager.Instance.CreateBalls();
     }
 
