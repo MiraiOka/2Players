@@ -36,7 +36,7 @@ public class ColorBall_BallController : MonoBehaviour
                 currentPositionX = nextX - Mathf.RoundToInt(direction.x);
                 currentPositionY = nextY - Mathf.RoundToInt(direction.y);
                 ColorBall_StatusManager.Instance.SetBallStatus(currentPositionX, currentPositionY, isRed);
-                // Debug.Log(currentPositionX + "," + currentPositionY);
+                ColorBall_ScoreManager.Instance.CalcScore();
                 return;
             }
         }

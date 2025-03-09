@@ -12,6 +12,7 @@ public class ColorBall_GameManager : SingletonMonoBehaviour<ColorBall_GameManage
         ColorBall_TileManager.Instance.CreateBaseTile();
         ColorBall_WallManager.Instance.SetWall();
         ColorBall_BallManager.Instance.CreateBalls();
+        ColorBall_ScoreManager.Instance.CalcScore();
     }
 
     public void ChangeTurn()
