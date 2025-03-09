@@ -36,6 +36,7 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
 
     public void MoveBall(bool isRed, Vector2 direction)
     {
+        if (ColorBall_GameManager.Instance.IsRedTurn != isRed) return;
         if (isRed)
         {
             redBallController.MoveBall(direction);
@@ -44,5 +45,6 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         {
             blueBallController.MoveBall(direction);
         }
+        ColorBall_GameManager.Instance.ChangeTurn();
     }
 }
