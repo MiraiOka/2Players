@@ -19,6 +19,8 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         redBall.transform.SetParent(transform);
         redBall.GetComponent<Renderer>().material.color = Color.red;
         ColorBall_StatusManager.Instance.SetBallStatus(1, 1, true);
+        ColorBall_StatusManager.Instance.SetGridType(1, 1, true);
+        ColorBall_TileManager.Instance.UpdateView(1, 1);
         redBallController = redBall.AddComponent<ColorBall_BallController>();
         redBallController.SetIsRed(true);
 
@@ -26,6 +28,8 @@ public class ColorBall_BallManager : SingletonMonoBehaviour<ColorBall_BallManage
         blueBall.transform.SetParent(transform);
         blueBall.GetComponent<Renderer>().material.color = Color.blue;
         ColorBall_StatusManager.Instance.SetBallStatus(gridWidth - 2, gridHeight - 2, false);
+        ColorBall_StatusManager.Instance.SetGridType(gridWidth - 2, gridHeight - 2, false);
+        ColorBall_TileManager.Instance.UpdateView(gridWidth - 2, gridHeight - 2);
         blueBallController = blueBall.AddComponent<ColorBall_BallController>();
         blueBallController.SetIsRed(false);
     }
